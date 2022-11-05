@@ -40,6 +40,7 @@
     "no-undef": "off",
     "no-unused-vars": "off",
     "no-use-before-define": "off",
+    "consistent-return": "off",
 
     // TypeScript
     "@typescript-eslint/explicit-module-boundary-types": "off",
