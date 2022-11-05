@@ -20,7 +20,7 @@
   "settings": {
     "react": { "version": "detect" },
     "import/parser": {
-      "@typescript-eslint/parser": [".ts", ".tsx"],
+      "@typescript-eslint/parser": [".ts", ".tsx"]
     },
     "import/resolver": {
       "typescript": {}
