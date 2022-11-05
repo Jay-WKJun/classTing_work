@@ -37,6 +37,11 @@ body {
   height: 100%;
 }
 
+h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

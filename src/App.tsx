@@ -2,10 +2,10 @@ import { Router } from './Router';
 
 function App() {
   return (
-    <div className="w-full h-full">
-      <div className="max-w-[600px] h-full">
+    <div className="flex justify-center w-full h-full">
+      <main className="max-w-[600px] w-full h-full">
         <Router />
-      </div>
+      </main>
     </div>
   );
 }
