@@ -32,6 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/config-conventional", "npm:17.1.0"],\
             ["@rollup/plugin-alias", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:4.0.2"],\
             ["@tanstack/react-query", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:4.14.3"],\
+            ["@types/humps", "npm:2.0.2"],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -49,6 +50,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-jsx-a11y", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:6.6.1"],\
             ["eslint-plugin-react", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:7.31.10"],\
             ["eslint-plugin-react-hooks", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:4.6.0"],\
+            ["humps", "npm:2.0.1"],\
             ["husky", "npm:8.0.1"],\
             ["lint-staged", "npm:13.0.3"],\
             ["postcss", "npm:8.4.18"],\
@@ -1129,6 +1131,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-http-cache-semantics-npm-4.0.1-90863c7a3e-1048aacf62.zip/node_modules/@types/http-cache-semantics/",\
           "packageDependencies": [\
             ["@types/http-cache-semantics", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/humps", [\
+        ["npm:2.0.2", {\
+          "packageLocation": "./.yarn/cache/@types-humps-npm-2.0.2-018f2ca1c8-db2ca91423.zip/node_modules/@types/humps/",\
+          "packageDependencies": [\
+            ["@types/humps", "npm:2.0.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -4534,6 +4545,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["humps", [\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/humps-npm-2.0.1-268b3f430d-7d5a674cfc.zip/node_modules/humps/",\
+          "packageDependencies": [\
+            ["humps", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["husky", [\
         ["npm:8.0.1", {\
           "packageLocation": "./.yarn/cache/husky-npm-8.0.1-85fede8470-943a73a13d.zip/node_modules/husky/",\
@@ -7684,6 +7704,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@commitlint/config-conventional", "npm:17.1.0"],\
             ["@rollup/plugin-alias", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:4.0.2"],\
             ["@tanstack/react-query", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:4.14.3"],\
+            ["@types/humps", "npm:2.0.2"],\
             ["@types/node", "npm:18.11.9"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
@@ -7701,6 +7722,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-jsx-a11y", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:6.6.1"],\
             ["eslint-plugin-react", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:7.31.10"],\
             ["eslint-plugin-react-hooks", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:4.6.0"],\
+            ["humps", "npm:2.0.1"],\
             ["husky", "npm:8.0.1"],\
             ["lint-staged", "npm:13.0.3"],\
             ["postcss", "npm:8.4.18"],\
