@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:5.40.0"],\
             ["@vitejs/plugin-react", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:2.1.0"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.25"],\
+            ["autoprefixer", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:10.4.13"],\
             ["commitlint", "npm:17.1.2"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-airbnb", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:19.0.4"],\
@@ -1938,6 +1939,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["autoprefixer", [\
+        ["npm:10.4.13", {\
+          "packageLocation": "./.yarn/cache/autoprefixer-npm-10.4.13-261edbcee5-dcb1cb7ae9.zip/node_modules/autoprefixer/",\
+          "packageDependencies": [\
+            ["autoprefixer", "npm:10.4.13"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:10.4.13", {\
+          "packageLocation": "./.yarn/__virtual__/autoprefixer-virtual-8c654b7022/0/cache/autoprefixer-npm-10.4.13-261edbcee5-dcb1cb7ae9.zip/node_modules/autoprefixer/",\
+          "packageDependencies": [\
+            ["autoprefixer", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:10.4.13"],\
+            ["@types/postcss", null],\
+            ["browserslist", "npm:4.21.4"],\
+            ["caniuse-lite", "npm:1.0.30001430"],\
+            ["fraction.js", "npm:4.2.0"],\
+            ["normalize-range", "npm:0.1.2"],\
+            ["picocolors", "npm:1.0.0"],\
+            ["postcss", "npm:8.4.18"],\
+            ["postcss-value-parser", "npm:4.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/postcss",\
+            "postcss"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["axe-core", [\
         ["npm:4.4.3", {\
           "packageLocation": "./.yarn/cache/axe-core-npm-4.4.3-6a07ed8cf6-c3ea000d9a.zip/node_modules/axe-core/",\
@@ -2130,6 +2159,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001419-f5202d11f6-7a4dc2794a.zip/node_modules/caniuse-lite/",\
           "packageDependencies": [\
             ["caniuse-lite", "npm:1.0.30001419"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.0.30001430", {\
+          "packageLocation": "./.yarn/cache/caniuse-lite-npm-1.0.30001430-c181064805-15200fe265.zip/node_modules/caniuse-lite/",\
+          "packageDependencies": [\
+            ["caniuse-lite", "npm:1.0.30001430"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3826,6 +3862,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/flatted-npm-3.2.7-0da10b7c56-427633049d.zip/node_modules/flatted/",\
           "packageDependencies": [\
             ["flatted", "npm:3.2.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["fraction.js", [\
+        ["npm:4.2.0", {\
+          "packageLocation": "./.yarn/cache/fraction.js-npm-4.2.0-28efe4afc7-8c76a6e21d.zip/node_modules/fraction.js/",\
+          "packageDependencies": [\
+            ["fraction.js", "npm:4.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5553,6 +5598,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/normalize-path-npm-3.0.0-658ba7d77f-88eeb4da89.zip/node_modules/normalize-path/",\
           "packageDependencies": [\
             ["normalize-path", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["normalize-range", [\
+        ["npm:0.1.2", {\
+          "packageLocation": "./.yarn/cache/normalize-range-npm-0.1.2-bec5e259e2-9b2f14f093.zip/node_modules/normalize-range/",\
+          "packageDependencies": [\
+            ["normalize-range", "npm:0.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7491,6 +7545,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:5.40.0"],\
             ["@vitejs/plugin-react", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:2.1.0"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.25"],\
+            ["autoprefixer", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:10.4.13"],\
             ["commitlint", "npm:17.1.2"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-airbnb", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:19.0.4"],\
