@@ -1,7 +1,7 @@
 import React, { MouseEvent } from 'react';
 
-import { QuizModel } from '@/models/QuizModel';
-import { SelectionModel } from '@/models/SelectionModel';
+import type { QuizModel } from '@/models/QuizModel';
+import type { SelectionModel } from '@/models/SelectionModel';
 import { Selection } from '@/components/Selection/Selection';
 
 function getSelectionState(selection: SelectionModel, isSelected: boolean) {
@@ -19,12 +19,14 @@ function getSelectionState(selection: SelectionModel, isSelected: boolean) {
 }
 
 interface QuizSelectionsProps {
+  hold?: boolean;
   quiz: QuizModel | null;
   isSelected?: boolean;
   onClick?: (e: MouseEvent<Element>) => void;
 }
 
 function QuizSelections({
+  hold,
   quiz,
   isSelected = false,
   onClick,
@@ -39,6 +41,7 @@ function QuizSelections({
           {
             quiz?.selections.map((selection, i) => (
               <Selection
+                hold={hold}
                 content={selection.content}
                 state={getSelectionState(selection, isSelected)}
                 onClick={(e) => {

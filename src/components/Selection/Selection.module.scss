@@ -1,7 +1,7 @@
 .wrapper {
   transition: all .5s;
 
-  &:hover {
+  &--hover:hover {
     transform: translateY(-10%);
     background-color: rgb(238, 255, 80);
   }

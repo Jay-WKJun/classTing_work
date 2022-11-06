@@ -41,7 +41,7 @@ function Result() {
         quizs
           ? quizs.results.map((quiz) => (
             <div className="w-full h-[400px] mb-[50px]">
-              <QuizSelections isSelected quiz={quiz} />
+              <QuizSelections hold isSelected quiz={quiz} />
             </div>
           ))
           : <div>loading</div>
