@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router';
+import { format } from 'date-fns';
 
 import { Link } from '@/components/Link';
 import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
@@ -23,7 +24,7 @@ function getCounts(callback: (el: QuizModel) => boolean, label: string, quizs?: 
 
 function Result() {
   const navigate = useNavigate();
-  const { startTime } = useGlobalContext();
+  const { getSpentTime } = useGlobalContext();
 
   const {
     data: quizs, isError, isFetching,
@@ -43,15 +44,20 @@ function Result() {
     getCounts((el) => !el.isCorrect(), '오답 갯수', quizs?.results)
   ), [quizs]);
 
+  const SpentTime = format(getSpentTime(), '소요시간 : m분 s초');
+
   return (
     <div className="w-full py-[100px]">
-      <section className="flex flex-col justify-around items-center h-[150px] mb-[100px]">
-        <h1>결과</h1>
+      <section className="flex flex-col justify-around items-center h-[200px] mb-[50px]">
+        <h1 className="mb-[10px]">결과</h1>
         <h3>
           {CorrectCount}
         </h3>
         <h3>
           {InCorrectCount}
+        </h3>
+        <h3>
+          {SpentTime}
         </h3>
       </section>
       {
