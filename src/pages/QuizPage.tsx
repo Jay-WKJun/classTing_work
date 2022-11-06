@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import { useGetQuiz } from '@/hooks/useGetQuiz';
-import { useTimeout } from '@/hooks/useTimeout';
 import { isNumber } from '@/utils/utils';
 import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
 
@@ -11,42 +10,61 @@ function QuizPage() {
   const navigate = useNavigate();
   const params = useParams();
   const { id } = params;
+  const numberedId = Number(id);
 
   const {
     currentQuiz, quizLength, data, isFetched,
-  } = useGetQuiz({ index: Number(id) });
+  } = useGetQuiz({ index: numberedId });
 
   useEffect(() => {
-    if (!isNumber(Number(id))) {
+    if (!isNumber(numberedId)) {
       return navigate('/');
     }
 
     if (isFetched && !data) {
       navigate('/');
     }
-  }, [isFetched, data, navigate, id]);
+  }, [isFetched, data, navigate, numberedId]);
 
-  useTimeout(() => {
-    if (id && quizLength) {
-      setIsSelected(false);
-      const numbedId = Number(id);
-      if (numbedId + 1 >= quizLength) {
-        return navigate('/result');
-      }
-
-      navigate(`/quiz/${numbedId + 1}`);
+  const ToTheNextButton = useMemo(() => {
+    if (!isNumber(numberedId) || !quizLength) {
+      return null;
     }
-  }, isSelected ? 1000 : null);
+
+    const isLast = numberedId + 1 >= quizLength;
+
+    const [callback, content] = isLast
+      ? [() => navigate('/result'), '결과 보기']
+      : [() => navigate(`/quiz/${numberedId + 1}`), '다음 문항'];
+
+    return (
+      <button
+        type="button"
+        className="text-[24px] rounded-2xl bg-red-400 px-[20px] py-[10px]"
+        onClick={() => {
+          setIsSelected(false);
+          callback();
+        }}
+      >
+        {content}
+      </button>
+    );
+  }, [navigate, numberedId, quizLength]);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full min-h-full py-[50px]">
       <QuizSelections
         quiz={currentQuiz}
         isSelected={isSelected}
-        onClick={() => {
-          setIsSelected(true);
-        }}
+        onClick={!isSelected
+          ? () => {
+            setIsSelected(true);
+          }
+          : undefined}
       />
+      <footer className="w-full flex justify-center items-center mt-[50px]">
+        {isSelected && ToTheNextButton}
+      </footer>
     </div>
   );
 }
