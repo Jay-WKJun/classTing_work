@@ -8,6 +8,7 @@ import { ErrorBoundary as ErrorFallbackComponent } from '@/pages/ErrorBoundary';
 
 import App from './App';
 import './index.css';
+import { GlobalStateProvider } from './store/GlobalContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,9 +27,11 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallbackComponent}>
       <QueryClientProvider client={queryClient}>
-        <Router>
-          <App />
-        </Router>
+        <GlobalStateProvider>
+          <Router>
+            <App />
+          </Router>
+        </GlobalStateProvider>
       </QueryClientProvider>
     </ErrorBoundary>
   </React.StrictMode>,
