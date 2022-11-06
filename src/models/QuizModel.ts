@@ -71,6 +71,11 @@ class QuizModel {
   getSelectionsLength = () => this.selections.length;
 
   isCorrect = () => this.selectedIndex === this.correctAnswerIndex;
+
+  initQuiz = () => {
+    this.selectedIndex = -1;
+    this.selections.forEach((selection) => selection.initSelect());
+  };
 }
 
 export { QuizModel };

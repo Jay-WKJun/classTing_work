@@ -38,6 +38,10 @@ class SelectionModel {
 
     return 'inCorrect';
   };
+
+  initSelect = () => {
+    this.isSelected = false;
+  };
 }
 
 export { SelectionModel };

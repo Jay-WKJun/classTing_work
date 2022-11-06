@@ -24,7 +24,7 @@ function getCounts(callback: (el: QuizModel) => boolean, label: string, quizs?: 
 
 function Result() {
   const navigate = useNavigate();
-  const { getSpentTime } = useGlobalContext();
+  const { getSpentTime, setStartTime } = useGlobalContext();
 
   const {
     data: quizs, isError, isFetching,
@@ -69,8 +69,18 @@ function Result() {
           ))
           : <div>loading</div>
       }
-      <footer className="flex justify-center items-center w-full h-[100px]">
-        <Link href="/" className="flex justify-center items-center px-[20px] py-[10px] font-bold text-[30px] rounded-2xl border-[2px] border-black bg-slate-400">다시 도전하기!</Link>
+      <footer className="flex flex-col justify-center items-center w-full h-[200px] child/Wo.last:mb-[30px]">
+        <Link
+          href="/quiz/0"
+          className="flex justify-center items-center px-[20px] py-[10px] font-bold text-[30px] rounded-2xl bg-lime-500"
+          onClick={() => {
+            quizs?.results.forEach((quiz) => quiz.initQuiz());
+            setStartTime();
+          }}
+        >
+          다시 도전하기!
+        </Link>
+        <Link href="/" className="flex justify-center items-center px-[20px] py-[10px] font-bold text-[30px] rounded-2xl bg-slate-400">홈으로!</Link>
       </footer>
     </div>
   );
