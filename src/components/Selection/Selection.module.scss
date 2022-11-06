@@ -1,0 +1,8 @@
+.button {
+  transition: all .5s;
+
+  &:hover {
+    transform: translateY(-10%);
+    background-color: rgb(135, 255, 80);
+  }
+}
