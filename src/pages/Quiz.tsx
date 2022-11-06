@@ -5,6 +5,7 @@ import { Selection } from '@/components/Selection/Selection';
 import { useGetQuiz } from '@/hooks/useGetQuiz';
 import { useTimeout } from '@/hooks/useTimeout';
 import { Selection as SelectionModel } from '@/models/Selection';
+import { isNumber } from '@/utils/utils';
 
 function getSelectionState(selection: SelectionModel, isSelected: boolean) {
   const state = selection.getThisSelectionState();
@@ -26,10 +27,12 @@ function Quiz() {
   const params = useParams();
   const { id } = params;
 
-  const { currentQuiz, data, isFetched } = useGetQuiz({ index: Number(id) });
+  const {
+    currentQuiz, quizLength, data, isFetched,
+  } = useGetQuiz({ index: Number(id) });
 
   useEffect(() => {
-    if (!id || Number.isNaN(Number(id))) {
+    if (!isNumber(Number(id))) {
       return navigate('/');
     }
 
@@ -39,13 +42,14 @@ function Quiz() {
   }, [isFetched, data, navigate, id]);
 
   useTimeout(() => {
-    if (id) {
+    if (id && quizLength) {
+      setIsSelected(false);
       const numbedId = Number(id);
-      if (numbedId + 1 === currentQuiz?.getSelectionsLength()) {
-        return navigate('result');
+      if (numbedId + 1 >= quizLength) {
+        return navigate('/result');
       }
 
-      navigate(`quiz/${numbedId + 1}`);
+      navigate(`/quiz/${numbedId + 1}`);
     }
   }, isSelected ? 1000 : null);
 
