@@ -30,7 +30,7 @@ function Loading() {
     }
   }, [isFetched, navigate, data]);
 
-  return <div className="w-full h-full flex justify-center items-center">{`Loading${dots}`}</div>;
+  return <div className="w-full h-full flex justify-center items-center text-[40px]">{`Loading${dots}`}</div>;
 }
 
 export { Loading };
