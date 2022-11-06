@@ -2,7 +2,7 @@ import './Api';
 
 import axios, { AxiosResponse } from 'axios';
 
-type Difficulty = 'easy' | 'medium' | 'hard';
+import type { QuizModelPOJO, Difficulty } from '@/models/QuizModel';
 
 interface GetQuizProps {
   amount?: number,
@@ -11,14 +11,7 @@ interface GetQuizProps {
 
 interface GetQuizResponse {
   responseCode: number;
-  results: {
-    category: string,
-    type: boolean,
-    difficulty: Difficulty,
-    question: string;
-    correctAnswer: string,
-    incorrectAnswers: string[]
-  }[]
+  results: QuizModelPOJO[]
 }
 
 export async function getQuiz({
