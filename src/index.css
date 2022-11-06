@@ -41,6 +41,11 @@ h1 {
   font-weight: bold;
 }
 
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
