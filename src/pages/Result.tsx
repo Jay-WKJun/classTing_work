@@ -4,9 +4,27 @@ import { useNavigate } from 'react-router';
 import { Link } from '@/components/Link';
 import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
 import { useGetQuiz } from '@/hooks/useGetQuiz';
+import { useGlobalContext } from '@/store/GlobalContext';
+import type { QuizModel } from '@/models/QuizModel';
+
+function getCounts(callback: (el: QuizModel) => boolean, label: string, quizs?: QuizModel[]) {
+  if (!quizs) { return ''; }
+
+  const count = quizs.reduce((prev, curr) => {
+    if (callback(curr)) {
+      return prev + 1;
+    }
+
+    return prev;
+  }, 0);
+
+  return `${label} : ${count} 개`;
+}
 
 function Result() {
   const navigate = useNavigate();
+  const { startTime } = useGlobalContext();
+
   const {
     data: quizs, isError, isFetching,
   } = useGetQuiz({ isFinished: true });
@@ -17,27 +35,24 @@ function Result() {
     }
   }, [navigate, isError, isFetching, quizs]);
 
-  const CorrectRatio = useMemo(() => {
-    const correctQuizCount = quizs?.results.reduce((prev, curr) => {
-      if (curr.isCorrect()) {
-        return prev + 1;
-      }
+  const CorrectCount = useMemo(() => (
+    getCounts((el) => el.isCorrect(), '정답 갯수', quizs?.results)
+  ), [quizs]);
 
-      return prev;
-    }, 0);
-
-    const totalQuizCount = quizs?.results.length;
-
-    return `${correctQuizCount} / ${totalQuizCount}`;
-  }, [quizs]);
+  const InCorrectCount = useMemo(() => (
+    getCounts((el) => !el.isCorrect(), '오답 갯수', quizs?.results)
+  ), [quizs]);
 
   return (
     <div className="w-full py-[100px]">
       <section className="flex flex-col justify-around items-center h-[150px] mb-[100px]">
-        <h1>정답률</h1>
-        <h1>
-          {CorrectRatio}
-        </h1>
+        <h1>결과</h1>
+        <h3>
+          {CorrectCount}
+        </h3>
+        <h3>
+          {InCorrectCount}
+        </h3>
       </section>
       {
         quizs
