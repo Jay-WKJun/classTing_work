@@ -10,7 +10,7 @@ function Loading() {
 
   const {
     data, isFetching, isFetched,
-  } = useGetQuiz();
+  } = useGetQuiz({});
 
   useInterval(() => {
     if (isFetching) {
