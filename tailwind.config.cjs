@@ -15,6 +15,20 @@ module.exports = {
       addVariant('child/Wo.last', '& > :not(:last-child)');
       addVariant('child/Wo.first', '& > :not(:first-child)');
       addVariant('child', '& > *');
+      addUtilities({
+        '.scrollbar-hide': {
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+
+          /* Firefox */
+          'scrollbar-width': 'none',
+
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
     }),
   ],
 };
