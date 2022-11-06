@@ -1,5 +1,7 @@
 import { decodeHtmlString, shuffle } from '@/utils/utils';
 
+import { Selection } from './Selection';
+
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
 export interface QuizModelPOJO {
@@ -24,7 +26,7 @@ class QuizModel {
 
   incorrectAnswers: string[];
 
-  selections: string[];
+  selections: Selection[];
 
   correctAnswerIndex: number;
 
@@ -46,7 +48,9 @@ class QuizModel {
     this.incorrectAnswers = incorrectAnswers;
 
     const [selections, correctAnswerIndex] = this.setSelections(incorrectAnswers, correctAnswer);
-    this.selections = selections;
+    this.selections = selections.map((el, i) => (
+      new Selection({ content: el, index: i, isCorrect: i === correctAnswerIndex })
+    ));
     this.correctAnswerIndex = correctAnswerIndex;
   }
 
@@ -63,8 +67,6 @@ class QuizModel {
   };
 
   isSelected = () => (this.selectedIndex >= 0);
-
-  isCorrect = () => this.selectedIndex === this.correctAnswerIndex;
 }
 
 export { QuizModel };
