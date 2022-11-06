@@ -21,3 +21,7 @@ export function decodeHtmlString(string: string) {
 
   return areaElement.value;
 }
+
+export function isNumber(any: any): any is number {
+  return typeof any === 'number';
+}
