@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 
 import { Selection } from '@/components/Selection/Selection';
 import { useGetQuiz } from '@/hooks/useGetQuiz';
+import { useTimeout } from '@/hooks/useTimeout';
 import { Selection as SelectionModel } from '@/models/Selection';
 
 function getSelectionState(selection: SelectionModel, isSelected: boolean) {
@@ -28,10 +29,25 @@ function Quiz() {
   const { currentQuiz, data, isFetched } = useGetQuiz({ index: Number(id) });
 
   useEffect(() => {
+    if (!id || Number.isNaN(Number(id))) {
+      return navigate('/');
+    }
+
     if (isFetched && !data) {
       navigate('/');
     }
-  }, [isFetched, data, navigate]);
+  }, [isFetched, data, navigate, id]);
+
+  useTimeout(() => {
+    if (id) {
+      const numbedId = Number(id);
+      if (numbedId + 1 === currentQuiz?.getSelectionsLength()) {
+        return navigate('result');
+      }
+
+      navigate(`quiz/${numbedId + 1}`);
+    }
+  }, isSelected ? 1000 : null);
 
   return (
     <div className="flex flex-col w-full h-full">

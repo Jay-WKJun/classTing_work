@@ -67,6 +67,8 @@ class QuizModel {
   };
 
   isSelected = () => (this.selectedIndex >= 0);
+
+  getSelectionsLength = () => this.selections.length;
 }
 
 export { QuizModel };
