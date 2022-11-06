@@ -46,6 +46,9 @@ function Result() {
           ))
           : <div>loading</div>
       }
+      <footer className="flex justify-center items-center w-full h-[100px]">
+        <button type="button" className="flex justify-center items-center px-[20px] py-[10px] font-bold text-[30px] rounded-2xl border-[2px] border-black bg-slate-400" onClick={() => navigate('/')}>다시 도전하기!</button>
+      </footer>
     </div>
   );
 }
