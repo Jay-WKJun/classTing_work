@@ -6,7 +6,7 @@ import { useTimeout } from '@/hooks/useTimeout';
 import { isNumber } from '@/utils/utils';
 import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
 
-function Quiz() {
+function QuizPage() {
   const [isSelected, setIsSelected] = useState(false);
   const navigate = useNavigate();
   const params = useParams();
@@ -39,19 +39,16 @@ function Quiz() {
   }, isSelected ? 1000 : null);
 
   return (
-    <div className="flex flex-col w-full h-full">
-      <section className="flex items-end h-[30%]">
-        <h1 className="text-center">{currentQuiz?.question}</h1>
-      </section>
-      <section className="flex-1 flex justify-center items-center">
-        <QuizSelections
-          quiz={currentQuiz}
-          isSelected={isSelected}
-          onClick={() => setIsSelected(true)}
-        />
-      </section>
+    <div className="w-full h-full">
+      <QuizSelections
+        quiz={currentQuiz}
+        isSelected={isSelected}
+        onClick={() => {
+          setIsSelected(true);
+        }}
+      />
     </div>
   );
 }
 
-export { Quiz };
+export { QuizPage };

@@ -30,23 +30,30 @@ function QuizSelections({
   onClick,
 }: QuizSelectionsProps) {
   return (
-    <div className="flex flex-col child/Wo.first:mt-[20px]">
-      {
-        quiz?.selections.map((selection, i) => (
-          <Selection
-            content={selection.content}
-            state={getSelectionState(selection, isSelected)}
-            onClick={(e) => {
-              selection.selectThis();
-              quiz.selectIndex(i);
+    <div className="flex flex-col w-full h-full">
+      <section className="flex items-center h-[40%]">
+        <h1 className="text-center">{quiz?.question}</h1>
+      </section>
+      <section className="flex-1 flex justify-center items-center">
+        <div className="flex flex-col child/Wo.first:mt-[20px]">
+          {
+            quiz?.selections.map((selection, i) => (
+              <Selection
+                content={selection.content}
+                state={getSelectionState(selection, isSelected)}
+                onClick={(e) => {
+                  selection.selectThis();
+                  quiz.selectIndex(i);
 
-              if (onClick) {
-                onClick(e);
-              }
-            }}
-          />
-        ))
-      }
+                  if (onClick) {
+                    onClick(e);
+                  }
+                }}
+              />
+            ))
+          }
+        </div>
+      </section>
     </div>
   );
 }
