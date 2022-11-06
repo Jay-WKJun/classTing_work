@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.1.3"],\
             ["classnames", "npm:2.3.2"],\
             ["commitlint", "npm:17.1.2"],\
+            ["date-fns", "npm:2.29.3"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-airbnb", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:19.0.4"],\
             ["eslint-import-resolver-typescript", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:3.5.1"],\
@@ -2726,6 +2727,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/dargs-npm-7.0.0-62701e0c7a-b8f1e3cba5.zip/node_modules/dargs/",\
           "packageDependencies": [\
             ["dargs", "npm:7.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["date-fns", [\
+        ["npm:2.29.3", {\
+          "packageLocation": "./.yarn/cache/date-fns-npm-2.29.3-fef7e3c72c-e01cf5b62a.zip/node_modules/date-fns/",\
+          "packageDependencies": [\
+            ["date-fns", "npm:2.29.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7760,6 +7770,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.1.3"],\
             ["classnames", "npm:2.3.2"],\
             ["commitlint", "npm:17.1.2"],\
+            ["date-fns", "npm:2.29.3"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-airbnb", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:19.0.4"],\
             ["eslint-import-resolver-typescript", "virtual:1b2c59a1f6c1b0bdb8550af67e5661b491efc3583e320e357e458741aa4637464f2226e256889da9225b364976d7835167dbf992b5e1444d496df4f7024e6e8d#npm:3.5.1"],\
