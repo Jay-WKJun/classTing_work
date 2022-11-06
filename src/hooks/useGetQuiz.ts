@@ -21,7 +21,7 @@ function useGetQuiz({
       results: res.results.map((el) => new QuizModel(el)),
     })),
     {
-      enabled: !index || !isFinished,
+      enabled: !index && !isFinished,
     },
   );
 
