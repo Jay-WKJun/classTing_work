@@ -60,15 +60,17 @@ function Result() {
           {SpentTime}
         </h3>
       </section>
-      {
-        quizs
-          ? quizs.results.map((quiz) => (
-            <div className="w-full h-[400px] mb-[50px]">
-              <QuizSelections hold isSelected quiz={quiz} />
-            </div>
-          ))
-          : <div>loading</div>
-      }
+      <section className="flex flex-col gap-[50px]">
+        {
+          quizs
+            ? quizs.results.map((quiz) => (
+              <div className="w-full h-[400px] mb-[50px]">
+                <QuizSelections hold isSelected quiz={quiz} />
+              </div>
+            ))
+            : <div>loading</div>
+        }
+      </section>
       <footer className="flex flex-col justify-center items-center w-full h-[200px] child/Wo.last:mb-[30px]">
         <Link
           href="/quiz/0"

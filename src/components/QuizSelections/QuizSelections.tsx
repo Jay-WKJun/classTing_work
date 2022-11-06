@@ -32,12 +32,12 @@ function QuizSelections({
   onClick,
 }: QuizSelectionsProps) {
   return (
-    <div className="flex flex-col w-full h-full">
+    <div className="flex flex-col w-full h-fit gap-[30px]">
       <section className="flex items-center h-[40%]">
         <h1 className="text-center">{quiz?.question}</h1>
       </section>
       <section className="flex-1 flex justify-center items-center">
-        <div className="flex flex-col child/Wo.first:mt-[20px]">
+        <div className="flex flex-col gap-[20px]">
           {
             quiz?.selections.map((selection, i) => (
               <Selection
