@@ -1,6 +1,6 @@
 import { decodeHtmlString, shuffle } from '@/utils/utils';
 
-import { Selection } from './Selection';
+import { SelectionModel } from './SelectionModel';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
@@ -26,7 +26,7 @@ class QuizModel {
 
   incorrectAnswers: string[];
 
-  selections: Selection[];
+  selections: SelectionModel[];
 
   correctAnswerIndex: number;
 
@@ -49,7 +49,7 @@ class QuizModel {
 
     const [selections, correctAnswerIndex] = this.setSelections(incorrectAnswers, correctAnswer);
     this.selections = selections.map((el, i) => (
-      new Selection({ content: el, index: i, isCorrect: i === correctAnswerIndex })
+      new SelectionModel({ content: el, index: i, isCorrect: i === correctAnswerIndex })
     ));
     this.correctAnswerIndex = correctAnswerIndex;
   }

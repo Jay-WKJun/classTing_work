@@ -1,10 +1,10 @@
-export interface SelectionInput {
+export interface SelectionModelInput {
   content: string;
   index: number;
   isCorrect: boolean;
 }
 
-class Selection {
+class SelectionModel {
   content: string;
 
   isSelected = false;
@@ -17,7 +17,7 @@ class Selection {
     content,
     index,
     isCorrect,
-  }: SelectionInput) {
+  }: SelectionModelInput) {
     this.content = content;
     this.index = index;
     this.isCorrect = isCorrect;
@@ -40,4 +40,4 @@ class Selection {
   };
 }
 
-export { Selection };
+export { SelectionModel };

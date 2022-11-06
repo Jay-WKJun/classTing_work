@@ -1,25 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
-import { Selection } from '@/components/Selection/Selection';
 import { useGetQuiz } from '@/hooks/useGetQuiz';
 import { useTimeout } from '@/hooks/useTimeout';
-import { Selection as SelectionModel } from '@/models/Selection';
 import { isNumber } from '@/utils/utils';
-
-function getSelectionState(selection: SelectionModel, isSelected: boolean) {
-  const state = selection.getThisSelectionState();
-
-  if (isSelected && selection.isCorrect) {
-    return 'correct';
-  }
-
-  if (state === 'not selected') {
-    return null;
-  }
-
-  return state;
-}
+import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
 
 function Quiz() {
   const [isSelected, setIsSelected] = useState(false);
@@ -59,21 +44,11 @@ function Quiz() {
         <h1 className="text-center">{currentQuiz?.question}</h1>
       </section>
       <section className="flex-1 flex justify-center items-center">
-        <div className="flex flex-col child/Wo.first:mt-[20px]">
-          {
-            currentQuiz?.selections.map((selection, i) => (
-              <Selection
-                content={selection.content}
-                state={getSelectionState(selection, isSelected)}
-                onClick={() => {
-                  selection.selectThis();
-                  currentQuiz.selectIndex(i);
-                  setIsSelected(true);
-                }}
-              />
-            ))
-          }
-        </div>
+        <QuizSelections
+          quiz={currentQuiz}
+          isSelected={isSelected}
+          onClick={() => setIsSelected(true)}
+        />
       </section>
     </div>
   );
