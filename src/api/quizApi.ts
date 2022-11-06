@@ -15,7 +15,7 @@ interface GetQuizResponse {
 }
 
 export async function getQuiz({
-  amount = 10,
+  amount = 3,
   difficulty = 'easy',
 }: GetQuizProps) {
   const params = {
