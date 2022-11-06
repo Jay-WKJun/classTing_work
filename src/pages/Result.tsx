@@ -1,6 +1,6 @@
 import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
 import { useGetQuiz } from '@/hooks/useGetQuiz';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 
 function Result() {
@@ -15,19 +15,26 @@ function Result() {
     }
   }, [navigate, isError, isFetching, quizs]);
 
+  const CorrectRatio = useMemo(() => {
+    const correctQuizCount = quizs?.results.reduce((prev, curr) => {
+      if (curr.isCorrect()) {
+        return prev + 1;
+      }
+
+      return prev;
+    }, 0);
+
+    const totalQuizCount = quizs?.results.length;
+
+    return `${correctQuizCount} / ${totalQuizCount}`;
+  }, [quizs]);
+
   return (
     <div className="w-full py-[100px]">
       <section className="flex flex-col justify-around items-center h-[150px] mb-[100px]">
         <h1>정답률</h1>
         <h1>
-          {`${quizs?.results.reduce((prev, curr) => {
-            if (curr.isCorrect()) {
-              return prev + 1;
-            }
-
-            return prev;
-          }, 0)} / ${quizs?.results.length}`}
-
+          {CorrectRatio}
         </h1>
       </section>
       {
