@@ -1,7 +1,13 @@
 import React from 'react';
+import { useQueryClient } from '@tanstack/react-query';
+
 import { Link } from '@/components/Link';
+import { quizKeys } from '@/constants/queryKeys';
 
 function Home() {
+  const queryClient = useQueryClient();
+  queryClient.removeQueries(quizKeys.default);
+
   return (
     <div className="flex flex-col items-center w-full h-full">
       <h1 className="flex justify-center items-end w-full h-[30%]">Classting Quiz!</h1>
