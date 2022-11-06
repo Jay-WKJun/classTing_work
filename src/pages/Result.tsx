@@ -1,7 +1,9 @@
-import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
-import { useGetQuiz } from '@/hooks/useGetQuiz';
 import React, { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router';
+
+import { Link } from '@/components/Link';
+import { QuizSelections } from '@/components/QuizSelections/QuizSelections';
+import { useGetQuiz } from '@/hooks/useGetQuiz';
 
 function Result() {
   const navigate = useNavigate();
@@ -47,7 +49,7 @@ function Result() {
           : <div>loading</div>
       }
       <footer className="flex justify-center items-center w-full h-[100px]">
-        <button type="button" className="flex justify-center items-center px-[20px] py-[10px] font-bold text-[30px] rounded-2xl border-[2px] border-black bg-slate-400" onClick={() => navigate('/')}>다시 도전하기!</button>
+        <Link href="/" className="flex justify-center items-center px-[20px] py-[10px] font-bold text-[30px] rounded-2xl border-[2px] border-black bg-slate-400">다시 도전하기!</Link>
       </footer>
     </div>
   );
