@@ -3,10 +3,14 @@ import { useQueryClient } from '@tanstack/react-query';
 
 import { Link } from '@/components/Link';
 import { quizKeys } from '@/constants/queryKeys';
+import { useGlobalContext } from '@/store/GlobalContext';
 
 function Home() {
   const queryClient = useQueryClient();
   queryClient.removeQueries(quizKeys.default);
+
+  const { initStartTime } = useGlobalContext();
+  initStartTime();
 
   return (
     <div className="flex flex-col items-center w-full h-full">
