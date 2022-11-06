@@ -8,7 +8,7 @@ function Router() {
     <ReactRouterRoutes>
       <Route path="/" element={<Home />} />
       <Route path="/loading" element={<Loading />} />
-      <Route path="/quiz/[id]" element={<Quiz />} />
+      <Route path="/quiz/:id" element={<Quiz />} />
       <Route path="*" element={<Navigate replace to="/" />} />
     </ReactRouterRoutes>
   );

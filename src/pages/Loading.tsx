@@ -26,7 +26,7 @@ function Loading() {
 
   useEffect(() => {
     if (isFetched && data) {
-      navigate('quiz/1');
+      navigate('/quiz/1');
     }
   }, [isFetched, navigate, data]);
 
