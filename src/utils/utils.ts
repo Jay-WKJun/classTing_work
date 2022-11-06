@@ -14,3 +14,10 @@ export function shuffle<T extends Array<any>>(arr: T): T[number][] {
 
   return newArr;
 }
+
+export function decodeHtmlString(string: string) {
+  const areaElement = document.createElement('textarea');
+  areaElement.innerHTML = string;
+
+  return areaElement.value;
+}

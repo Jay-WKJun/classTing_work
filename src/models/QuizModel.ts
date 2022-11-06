@@ -1,4 +1,4 @@
-import { shuffle } from '@/utils/utils';
+import { decodeHtmlString, shuffle } from '@/utils/utils';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
@@ -41,7 +41,7 @@ class QuizModel {
     this.category = category;
     this.type = type;
     this.difficulty = difficulty;
-    this.question = question;
+    this.question = decodeHtmlString(question);
     this.correctAnswer = correctAnswer;
     this.incorrectAnswers = incorrectAnswers;
 
