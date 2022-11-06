@@ -1,8 +1,28 @@
-.button {
+.wrapper {
   transition: all .5s;
 
   &:hover {
     transform: translateY(-10%);
-    background-color: rgb(135, 255, 80);
+    background-color: rgb(238, 255, 80);
+  }
+
+  .button {
+    background-color: black;
+  }
+}
+
+.correct {
+  background-color: rgb(135, 255, 80) !important;
+
+  .button {
+    background-color: green;
+  }
+}
+
+.incorrect {
+  background-color: salmon !important;
+
+  .button {
+    background-color: red;
   }
 }
