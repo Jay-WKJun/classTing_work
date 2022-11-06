@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getQuiz } from '@/api/quizApi';
 import { quizKeys } from '@/constants/queryKeys';
 import { QuizModel } from '@/models/QuizModel';
+import { isNumber } from '@/utils/utils';
 
 interface UseGetQuizProps {
   index?: number;
@@ -21,13 +22,14 @@ function useGetQuiz({
       results: res.results.map((el) => new QuizModel(el)),
     })),
     {
-      enabled: !index && !isFinished,
+      enabled: !isNumber(index) && !isFinished,
     },
   );
 
   return useMemo(() => ({
     ...res,
-    currentQuiz: (index && res.data) ? res.data.results[index] : null,
+    currentQuiz: (isNumber(index) && res.data) ? res.data.results[index] : null,
+    quizLength: res.data?.results.length,
   }), [res, index]);
 }
 
