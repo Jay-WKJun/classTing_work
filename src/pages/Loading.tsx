@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { useGetQuiz } from '@/hooks/useGetQuiz';
-import useInterval from '@/hooks/useInterval';
+import { useInterval } from '@/hooks/useInterval';
 
 function Loading() {
   const [dots, setDots] = useState('.');
@@ -26,7 +26,7 @@ function Loading() {
 
   useEffect(() => {
     if (isFetched && data) {
-      navigate('/quiz/1');
+      navigate('/quiz/0');
     }
   }, [isFetched, navigate, data]);
 
