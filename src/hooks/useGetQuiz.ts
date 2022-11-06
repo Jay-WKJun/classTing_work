@@ -9,11 +9,13 @@ import { isNumber } from '@/utils/utils';
 interface UseGetQuizProps {
   index?: number;
   isFinished?: boolean;
+  onSuccess?: () => void;
 }
 
 function useGetQuiz({
   index,
   isFinished,
+  onSuccess,
 }: UseGetQuizProps) {
   const res = useQuery(
     quizKeys.default,
@@ -22,6 +24,7 @@ function useGetQuiz({
       results: res.results.map((el) => new QuizModel(el)),
     })),
     {
+      onSuccess,
       enabled: !isNumber(index) && !isFinished,
     },
   );
