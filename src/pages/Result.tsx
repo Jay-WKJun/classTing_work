@@ -8,8 +8,8 @@ import { useGetQuiz } from '@/hooks/useGetQuiz';
 import { useGlobalContext } from '@/store/GlobalContext';
 import type { QuizModel } from '@/models/QuizModel';
 
-function getCounts(callback: (el: QuizModel) => boolean, label: string, quizs?: QuizModel[]) {
-  if (!quizs) { return ''; }
+function getCounts(callback: (el: QuizModel) => boolean, quizs?: QuizModel[]) {
+  if (!quizs) { return 0; }
 
   const count = quizs.reduce((prev, curr) => {
     if (callback(curr)) {
@@ -19,6 +19,10 @@ function getCounts(callback: (el: QuizModel) => boolean, label: string, quizs?: 
     return prev;
   }, 0);
 
+  return count;
+}
+
+function getCountLabel(label: string, count: number) {
   return `${label} : ${count} 개`;
 }
 
@@ -36,13 +40,11 @@ function Result() {
     }
   }, [navigate, isError, isFetching, quizs]);
 
-  const CorrectCount = useMemo(() => (
-    getCounts((el) => el.isCorrect(), '정답 갯수', quizs?.results)
-  ), [quizs]);
+  const correctCount = getCounts((el) => el.isCorrect(), quizs?.results);
+  const inCorrectCount = getCounts((el) => !el.isCorrect(), quizs?.results);
 
-  const InCorrectCount = useMemo(() => (
-    getCounts((el) => !el.isCorrect(), '오답 갯수', quizs?.results)
-  ), [quizs]);
+  const CorrectCount = getCountLabel('정답 갯수', correctCount);
+  const InCorrectCount = getCountLabel('오답 갯수', inCorrectCount);
 
   const SpentTime = format(getSpentTime(), '소요시간 : m분 s초');
 
