@@ -41,6 +41,7 @@ function QuizSelections({
           {
             quiz?.selections.map((selection, i) => (
               <Selection
+                key={`quiz-selection-${quiz.question}-${selection.content}]`}
                 hold={hold}
                 content={selection.content}
                 state={getSelectionState(selection, isSelected)}

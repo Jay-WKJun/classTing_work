@@ -83,7 +83,7 @@ function Result() {
         {
           quizs
             ? quizs.results.map((quiz) => (
-              <div className="w-full min-h-[400px]">
+              <div key={`quizResult-${quiz.question}`} className="w-full min-h-[400px]">
                 <QuizSelections hold isSelected quiz={quiz} />
               </div>
             ))

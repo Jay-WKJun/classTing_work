@@ -38,7 +38,7 @@ function BarChart({
       <Legend />
       {
         data[0].bars.map(({ key, color }) => (
-          <Bar dataKey={key} fill={color} />
+          <Bar key={`${data[0].name}-${key}-${color}`} dataKey={key} fill={color} />
         ))
       }
     </BarChartComponent>
