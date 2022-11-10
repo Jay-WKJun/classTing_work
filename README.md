@@ -6,8 +6,6 @@
 
 ### 실행 방법
 
-(pnp mode이므로 따로 yarn install 혹은 npm install을 할 필요가 없습니다!)
-
 ```
 $ git clone https://github.com/Jay-WKJun/classTing_work
 
